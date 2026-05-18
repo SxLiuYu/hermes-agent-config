@@ -74,8 +74,8 @@ LEVELS = {
 # ── 关键词分类 ──────────────────────────────────────────────
 EXIT_EARLY_KW = [
     "在吗", "hello", "hi", "你好", "谢谢", "再见", "ok", "好的",
-    "what", "who is", "什么是", "where is", "什么时候",
-    "天气", "时间", "日期", "how to say", "翻译",
+    "what", "who is", "什么是", "where is",
+    "天气", "日期", "how to say", "翻译",
 ]
 
 FULL_REASONING_KW = [

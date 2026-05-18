@@ -1,0 +1,70 @@
+=================================================================
+   Hermes Agent 集成测试报告
+   时间: 2026-05-18 09:59:40 UTC
+=================================================================
+
+   总计: 47 项 | ✅ 46 | ❌ 0 | ⬛ 1
+   通过率: 98%
+
+─────────────────────────────────────────────────────────────────
+   Phase 1: 冒烟测试 (模块可用性)
+─────────────────────────────────────────────────────────────────
+   ✅ multi_exit.py                       output: {"level": 2, "level_name": "FULL", "level_desc": "复杂推理，完整 CoT + delegate", "scor
+   ✅ intent_disambiguator.py             output: {"raw": ""}
+   ✅ planning.py                         output: {"plan_id": "bab0ac12fc8d", "task": "修复 memory_decay.py 中 decay 计算对长时间未用记忆的误判", 
+   ✅ milestone_planner.py                output: {"raw": "🤖 正在调用 LLM 分解任务...\n🧠 使用启发式模板分解...\n🎯 任务已规划: f789090015fb\n📌 目标: test m
+   ✅ few_shot_selector.py                output: {"inject_text": "", "examples_count": 0, "top_similarity": 0.0, "selected_exampl
+   ✅ metacognition.py                    output: {"raw": "## 🧠 MetaCognition Layer\n\n当前策略: **cot** — Chain-of-Thought: 逐步推理，暴露思维
+   ✅ model_router.py                     output: {"summary": {"total_calls": 0, "total_tokens": 0, "total_cost": 0.0, "estimated_
+   ✅ bandit_router.py                    output: {"status": "ok", "total_records": 6, "cold_start_threshold": 10, "phase": "cold_
+   ✅ tool_chain_fusion.py                output: {"status": "ok", "action": "record", "sequence": ["web_search", "web_extract"], 
+   ✅ tool_cache.py                       output: {"hits": 0, "misses": 0, "sets": 0, "hit_rate": "0.0%", "total_entries": 0, "tot
+   ✅ vector_memory.py                    output: {"status": "ok", "action": "stats", "total_memories": 3, "max_capacity": 1000, "
+   ✅ memory_decay.py                     output: {"raw": "📊 记忆衰减统计\n   总记忆条目: 22\n   已追踪元数据: 5\n\n   Top 5 (按 recency):\n   1. [🔥
+   ✅ context_budget.py                   output: {"raw": "📊 上下文预算报告\n   [░░░░░░░░░░░░░░░░░░░░] 0%\n   总预算: 12,000 | 已用: 0 | 剩余: 1
+   ✅ chapter_compressor.py               output: {"current_chapter_id": 0, "completed_chapters": 0, "total_compressed_messages": 
+   ✅ constitutional_safety.py            output: {"passed": false, "violations": [{"rule": 1, "rule_name": "禁止危险命令", "reason": "匹
+   ✅ human_in_loop.py                    output: {"gated": true, "risks": [{"id": "file_deletion", "name": "文件/目录删除", "risk_level
+   ✅ progressive_disclosure.py           output: {"action": "inject", "injection": "## 📐 渐进式信息披露\n回复结构:\n- TL;DR: 一句话结论\n- 关键步骤: 
+   ✅ error_correction.py                 output: {"patterns": {"total_tasks": 2, "total_failures_recorded": 1, "total_successes_r
+   ✅ experience_distiller.py             output: {"raw": "\n📊 经验库统计\n==================================================\n  经验总数: 
+   ✅ experience_evolution.py             output: {"total_experiences": 6, "active_experiences": 6, "merged_experiences": 0, "prom
+   ✅ agent_comms.py                      output: {"status": "ok", "current_agent": "anonymous", "agents": {"anonymous": {"status"
+   ✅ swarm_skills.py                     output: {"skills": [{"name": "code-review-team", "description": "代码审查团队：规划→实现→审查→测试", "a
+   ✅ hits_mode.py                        output: {"mode": "hots", "in_team": false, "role": null, "message": "你当前不在团队中。处于指挥官 (HOT
+   ✅ health_dashboard.py                 output: {"status": "collected", "saved_to": "/Users/sxliuyu/.hermes/health/dashboard.jso
+
+─────────────────────────────────────────────────────────────────
+   Phase 2: 端到端工作流
+─────────────────────────────────────────────────────────────────
+   ✅ multi_exit classifies bug fix       level=FULL
+   ✅ intent disambiguator                ambiguous=None
+   ✅ planning generates steps            
+   ✅ metacognition selects strategy      strategy=cot
+   ✅ model_router selects model          model=finna-deepseek-v3.1
+   ✅ context_budget check                
+   ✅ few_shot_selector                   
+   ✅ tool_chain.record web_search→extract 
+   ✅ tool_cache stats                    hit_rate=0.0%
+   ✅ constitutional_safety passed        
+   ✅ human_in_loop check                 gated=False
+   ✅ error_correction records fix        
+   ✅ experience_distiller distill        new_experiences=0
+   ✅ experience_evolution evolve         experiences=6
+   ✅ progressive_disclosure inject       
+   ✅ health_dashboard collect            
+   ✅ agent_comms status                  
+   ✅ bandit_router record                
+   ✅ chapter_compressor stats            
+
+─────────────────────────────────────────────────────────────────
+   Phase 3: 交叉验证
+─────────────────────────────────────────────────────────────────
+   ⬛ exp_distiller → exp_evolution link  one source unavailable
+   ✅ context_budget has layers           
+   ✅ health_dashboard aggregates         
+   ✅ tool_chain suggests after record    suggestions=[]
+
+=================================================================
+   🎉 全部通过！
+=================================================================
