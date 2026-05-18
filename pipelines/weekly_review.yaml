@@ -1,0 +1,91 @@
+# Example: Weekly Review Pipeline
+# Runs system diagnostics, checks disk space, and generates a summary report.
+# Usage: python hermes_pipeline.py pipelines/weekly_review.yaml
+
+name: weekly_review
+description: "Weekly system review — disk, memory, git status, and AI summary"
+version: "1.0"
+
+args:
+  report_dir: ~/.hermes/reports
+
+steps:
+  # Step 1: Check disk usage
+  - name: check_disk
+    type: tool
+    tool: shell
+    args:
+      cmd: "df -h / | tail -1 | awk '{print $5, $3, $4}'"
+      timeout: 10
+
+  # Step 2: Check memory
+  - name: check_memory
+    type: tool
+    tool: shell
+    args:
+      cmd: "vm_stat | head -5"
+
+  # Step 3: Git status (parallel with disk/memory checks could be done)
+  - name: git_status
+    type: tool
+    tool: shell
+    args:
+      cmd: "cd ~/.hermes && git status --short | head -20"
+
+  # Step 4: Check for stale processes
+  - name: check_processes
+    type: tool
+    tool: shell
+    args:
+      cmd: "ps aux | grep -E 'python|node|redis' | grep -v grep | wc -l"
+      timeout: 10
+
+  # Step 5: AI summary of findings
+  - name: ai_summary
+    type: ai
+    prompt: |
+      You are reviewing system health. Summarize these findings in Chinese, 3-5 bullet points:
+      
+      Disk: {{check_disk.output.stdout}}
+      Memory: {{check_memory.output.stdout}}
+      Active processes: {{check_processes.output.stdout}}
+      
+      Be concise and highlight any issues.
+    timeout_seconds: 60
+
+  # Step 6: Conditional — only save if disk usage > 80%
+  - name: disk_warning
+    type: conditional
+    condition: check_disk.output.stdout
+    steps:
+      - name: send_warning
+        type: tool
+        tool: shell
+        args:
+          cmd: "echo 'WARNING: Disk usage is high' >> ~/.hermes/alerts.log"
+
+  # Step 7: Write report (with approval gate)
+  - name: write_report
+    type: approval
+    approval_message: |
+      Weekly review summary:
+      {{ai_summary.output}}
+      
+      Save report to {{report_dir}}?
+    steps:
+      - name: save_report
+        type: tool
+        tool: write_file
+        args:
+          path: "{{report_dir}}/weekly_{{context.timestamp}}.md"
+          content: |
+            # Weekly System Review
+            
+            ## Disk
+            {{check_disk.output.stdout}}
+            
+            ## Memory
+            {{check_memory.output.stdout}}
+            
+            ## AI Summary
+            {{ai_summary.output}}

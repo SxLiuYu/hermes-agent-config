@@ -1,0 +1,17 @@
+{
+  "name": "docker-tools",
+  "version": "1.0.0",
+  "description": "Docker 容器管理工具集 - 日志查看、清理、构建",
+  "author": "yujinze",
+  "homepage": "https://github.com/yujinze/hermes-plugins",
+  "license": "MIT",
+  "hermes_version": ">=0.1.0",
+  "skills": ["docker-diagnose", "docker-cleanup"],
+  "hooks": ["pre-docker-prune-warning"],
+  "commands": ["docker-logs", "docker-ps"],
+  "dependencies": {
+    "tools": ["docker"]
+  },
+  "keywords": ["docker", "devops", "container"],
+  "installed_at": null
+}

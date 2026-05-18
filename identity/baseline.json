@@ -1,0 +1,15 @@
+{
+  "established_at": "2026-05-18T01:42:12.637458+00:00",
+  "source_sessions": 1,
+  "fingerprint": {
+    "avg_sentence_len": 44.1,
+    "code_ratio": 0.0,
+    "emoji_density": 0.195,
+    "english_ratio": 0.544,
+    "chinese_ratio": 0.068,
+    "avg_word_len": 6.9,
+    "bullet_density": 0.61,
+    "chars_total": 9422,
+    "sentence_count": 205
+  }
+}

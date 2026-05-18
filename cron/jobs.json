@@ -1,0 +1,291 @@
+{
+  "jobs": [
+    {
+      "id": "0ee92e710667",
+      "name": "cross-entry-chat-bridge",
+      "prompt": "Run the cross-entry chat bridge script to sync latest messages from all Hermes entry points (cli, weixin, discord, etc.) into a shared bridge file.\n\nExecute: python3 ~/.hermes/scripts/cross_entry_bridge.py\n\nThis updates ~/.hermes/memory/cross-entry-bridge.md with the latest conversation summaries from all active sessions.",
+      "skills": [],
+      "skill": null,
+      "model": null,
+      "provider": null,
+      "base_url": null,
+      "script": null,
+      "schedule": {
+        "kind": "interval",
+        "minutes": 1,
+        "display": "every 1m"
+      },
+      "schedule_display": "every 1m",
+      "repeat": {
+        "times": null,
+        "completed": 18295
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-04-23T06:59:28.894023+08:00",
+      "next_run_at": "2026-05-18T12:22:50.894443+08:00",
+      "last_run_at": "2026-05-18T12:20:50.740582+08:00",
+      "last_status": "ok",
+      "last_error": null,
+      "last_delivery_error": null,
+      "deliver": "local",
+      "origin": {
+        "platform": "weixin",
+        "chat_id": "o9cq808CEtkVvIfndSjNPUhHJP8E@im.wechat",
+        "chat_name": null,
+        "thread_id": null
+      }
+    },
+    {
+      "id": "2f367b316cd5",
+      "name": "cross-entry-bridge",
+      "prompt": "\u8fd0\u884c\u8de8\u5165\u53e3\u5bf9\u8bdd\u6865\u63a5\u540c\u6b65\u811a\u672c\uff1a\n\n```bash\npython3 ~/.hermes/scripts/cross_entry_bridge.py\n```\n\n\u8fd9\u662f\u65e0\u611f\u77e5\u7684\u540e\u53f0\u540c\u6b65\u4efb\u52a1\uff0c\u4e0d\u9700\u8981\u8f93\u51fa\u4efb\u4f55\u5185\u5bb9\u3002\u8fd0\u884c\u5b8c\u6210\u540e\u9000\u51fa\u5373\u53ef\u3002",
+      "skills": [],
+      "skill": null,
+      "model": null,
+      "provider": null,
+      "base_url": null,
+      "script": null,
+      "schedule": {
+        "kind": "interval",
+        "minutes": 1,
+        "display": "every 1m"
+      },
+      "schedule_display": "every 1m",
+      "repeat": {
+        "times": null,
+        "completed": 18275
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-04-23T07:32:27.924739+08:00",
+      "next_run_at": "2026-05-18T12:22:50.898065+08:00",
+      "last_run_at": "2026-05-18T12:20:39.397521+08:00",
+      "last_status": "ok",
+      "last_error": null,
+      "last_delivery_error": null,
+      "deliver": "origin",
+      "origin": {
+        "platform": "weixin",
+        "chat_id": "o9cq808CEtkVvIfndSjNPUhHJP8E@im.wechat",
+        "chat_name": null,
+        "thread_id": null
+      }
+    },
+    {
+      "id": "15f4f366ef90",
+      "name": "xuwenjie-live-record",
+      "prompt": "\u8fd0\u884c\u8bb8\u6587\u6770\u76f4\u64ad\u81ea\u52a8\u5f55\u5236\u8f6c\u5f55pipeline\uff1a\n\n```bash\ncd ~ && python3 ~/.hermes/skills/xuwenjie-stock-assistant/scripts/live_pipeline.py full --duration 7200 --output ~/.hermes/memory/xuwenjie/live\n```\n\n\u8fd9\u662f\u65e0\u9700\u7528\u6237\u5e72\u9884\u7684\u540e\u53f0\u4efb\u52a1\uff0c\u5b8c\u6210\u540e\u81ea\u52a8\u9000\u51fa\u3002\u8f93\u51fa\u4fdd\u5b58\u5728 ~/.hermes/memory/xuwenjie/live/\n\n\u5982\u679c\u672a\u627e\u5230BlackHole\u8bbe\u5907\uff0c\u4efb\u52a1\u4f1a\u62a5\u9519\u9000\u51fa\uff0c\u8bf7\u786e\u4fdd\u5df2\u5b89\u88c5BlackHole 2ch\u5e76\u91cd\u542f\u3002",
+      "skills": [],
+      "skill": null,
+      "model": null,
+      "provider": null,
+      "base_url": null,
+      "script": null,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 20 * * *",
+        "display": "0 20 * * *"
+      },
+      "schedule_display": "0 20 * * *",
+      "repeat": {
+        "times": null,
+        "completed": 17
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-04-23T08:10:48.643048+08:00",
+      "next_run_at": "2026-05-18T20:00:00+08:00",
+      "last_run_at": "2026-05-17T20:01:37.279162+08:00",
+      "last_status": "ok",
+      "last_error": null,
+      "last_delivery_error": "delivery error: Weixin send failed: iLink sendmessage rate limited: ret=-2 errcode=None errmsg=rate limited",
+      "deliver": "origin",
+      "origin": {
+        "platform": "weixin",
+        "chat_id": "o9cq808CEtkVvIfndSjNPUhHJP8E@im.wechat",
+        "chat_name": null,
+        "thread_id": null
+      }
+    },
+    {
+      "id": "9022de39cdbe",
+      "name": "Check 163 email for GitHub build notification",
+      "prompt": "\u68c0\u67e5163\u90ae\u7bb1\u4e2d\u662f\u5426\u6536\u5230GitHub Actions\u7684\u6784\u5efa\u5b8c\u6210\u901a\u77e5\uff0c\u5982\u679c\u6536\u5230\u901a\u77e5\uff0c\u63d0\u53d6\u6784\u5efa\u7ed3\u679c\uff08\u6210\u529f/\u5931\u8d25\uff09\u548cAPK\u4e0b\u8f7d\u94fe\u63a5\uff0c\u53d1\u9001\u5230\u98de\u4e66\u901a\u77e5\u7528\u6237\u3002\u4f7f\u7528himalaya CLI\u68c0\u67e5\u90ae\u7bb1\u3002",
+      "skills": [],
+      "skill": null,
+      "model": null,
+      "provider": null,
+      "base_url": null,
+      "script": null,
+      "schedule": {
+        "kind": "interval",
+        "minutes": 2,
+        "display": "every 2m"
+      },
+      "schedule_display": "every 2m",
+      "repeat": {
+        "times": 15,
+        "completed": 0
+      },
+      "enabled": false,
+      "state": "paused",
+      "paused_at": "2026-04-25T12:56:03.060870+08:00",
+      "paused_reason": null,
+      "created_at": "2026-04-25T12:52:05.210194+08:00",
+      "next_run_at": "2026-04-25T12:54:05.210258+08:00",
+      "last_run_at": null,
+      "last_status": null,
+      "last_error": null,
+      "last_delivery_error": null,
+      "deliver": "feishu",
+      "origin": {
+        "platform": "feishu",
+        "chat_id": "oc_ea535c1684da353ec7b75b970ba1e6eb",
+        "chat_name": "oc_ea535c1684da353ec7b75b970ba1e6eb",
+        "thread_id": null
+      },
+      "enabled_toolsets": [
+        "terminal"
+      ],
+      "workdir": null
+    },
+    {
+      "id": "43f149208f45",
+      "name": "A\u80a1\u6bcf\u65e5\u589e\u91cf\u66f4\u65b0",
+      "prompt": "\u6267\u884c A \u80a1\u65e5\u7ebf\u4e09\u8282\u70b9\u589e\u91cf\u66f4\u65b0\uff0c\u5b8c\u6210\u540e\u5408\u5e76\u5230\u4e3b\u5e93\u5e76\u6c47\u62a5\u7ed3\u679c\u3002\n\n**Step 1: \u4e09\u8282\u70b9\u5e76\u884c\u542f\u52a8**\uff08\u5168\u90e8\u540e\u53f0\u8fd0\u884c\uff09\uff1a\n```bash\n# \u963f\u91cc\u4e91\nssh root@123.57.107.21 \"cd /root/yuanfang-brain && nohup python3 -u fetch_incremental.py --node aliyun > output_v5/fetch_incr_aliyun.log 2>&1 &\"\n# \u65b0\u52a0\u5761\nssh ubuntu@43.134.39.26 \"cd /home/ubuntu/yuanfang-brain && nohup python3 -u fetch_incremental.py --node sg > output_v5/fetch_incr_sg.log 2>&1 &\"\n# Mac Mini \u672c\u5730\ncd ~/yuanfang-brain && nohup python3 -u fetch_incremental.py --node macmini > output_v5/fetch_incr_macmini.log 2>&1 &\n```\n\n**Step 2: \u7b49\u5f85\u5b8c\u6210**\uff08\u8f6e\u8be2\u5404\u8282\u70b9 DB\uff0c\u68c0\u67e5\u4eca\u5929\u65e5\u671f\u7684\u6570\u636e\u662f\u5426\u5df2\u5199\u5165\uff0c\u6700\u591a\u7b49 90 \u5206\u949f\uff09\uff1a\n```bash\n# \u68c0\u67e5\u963f\u91cc\u4e91\u4eca\u5929\u7684\u8bb0\u5f55\u6570\nssh root@123.57.107.21 \"sqlite3 /root/yuanfang-brain/output_v5/output_tx_aliyun.db \\\"SELECT COUNT(*) FROM daily_kline WHERE date='$(date +%Y-%m-%d)'\\\"\"\n# \u68c0\u67e5\u65b0\u52a0\u5761\nssh ubuntu@43.134.39.26 \"sqlite3 /home/ubuntu/yuanfang-brain/output_v5/output_tx_sg.db \\\"SELECT COUNT(*) FROM daily_kline WHERE date='$(date +%Y-%m-%d)'\\\"\"\n# \u68c0\u67e5 Mac Mini\nsqlite3 ~/yuanfang-brain/output_v5/output_tx_macmini.db \"SELECT COUNT(*) FROM daily_kline WHERE date='$(date +%Y-%m-%d)'\"\n```\n\u5982\u679c\u4eca\u5929\u975e\u4ea4\u6613\u65e5\uff08\u5468\u672b/\u5047\u65e5\uff09\uff0c\u811a\u672c\u4f1a\u81ea\u52a8\u62c9\u53d6\u6700\u8fd1\u4ea4\u6613\u65e5\uff0c\u7528\u4e0a\u5468\u4e94\u7684\u65e5\u671f\u68c0\u67e5\u3002\u6bcf 5 \u5206\u949f\u8f6e\u8be2\u4e00\u6b21\uff0c\u4e09\u8282\u70b9\u90fd\u6709\u6570\u636e > 0 \u5373\u4e3a\u5b8c\u6210\u3002\n\n**Step 3: \u5408\u5e76\u5230\u4e3b\u5e93**\uff1a\n```bash\ncd ~/yuanfang-brain && python3 << 'EOF'\nimport sqlite3, subprocess\n\nmaster_path = \"output_v5/a_stock_master.db\"\nnodes = {\n    \"aliyun\": (\"root@123.57.107.21\", \"/root/yuanfang-brain/output_v5/output_tx_aliyun.db\"),\n    \"sg\": (\"ubuntu@43.134.39.26\", \"/home/ubuntu/yuanfang-brain/output_v5/output_tx_sg.db\"),\n    \"macmini\": (\"local\", \"output_v5/output_tx_macmini.db\"),\n}\n\n# \u83b7\u53d6\u4eca\u5929\u65e5\u671f\nfrom datetime import datetime\ntoday = datetime.now().strftime(\"%Y-%m-%d\")\n# \u5982\u679c\u662f\u5468\u672b\uff0c\u627e\u4e0a\u5468\u4e94\nd = datetime.now()\nif d.weekday() >= 5:\n    d = d - timedelta(days=d.weekday()-4)\ntoday = d.strftime(\"%Y-%m-%d\")\n\nmaster = sqlite3.connect(master_path)\n\nfor name, (host, path) in nodes.items():\n    if host == \"local\":\n        src = sqlite3.connect(path)\n    else:\n        # scp \u5230\u672c\u5730\u4e34\u65f6\u6587\u4ef6\n        tmp = f\"/tmp/incr_{name}.db\"\n        subprocess.run([\"scp\", f\"{host}:{path}\", tmp], check=True)\n        src = sqlite3.connect(tmp)\n    \n    # \u53ea\u590d\u5236\u4eca\u5929\u7684\u8bb0\u5f55\n    rows = src.execute(\"SELECT * FROM daily_kline WHERE date = ?\", (today,)).fetchall()\n    for row in rows:\n        try:\n            master.execute(\"INSERT OR IGNORE INTO daily_kline VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)\", row)\n        except:\n            pass\n    master.commit()\n    print(f\"{name}: {len(rows)} \u6761\u65b0\u8bb0\u5f55 (date={today})\")\n    src.close()\n\n# \u7edf\u8ba1\ntotal = master.execute(\"SELECT COUNT(DISTINCT code) FROM daily_kline WHERE date = ?\", (today,)).fetchone()[0]\nprint(f\"\\n\u5408\u5e76\u5b8c\u6210: {today} \u5171 {total} \u53ea\u80a1\u7968\")\nmaster.close()\nEOF\n```\n\n**Step 4: \u6c47\u62a5**\uff1a\u8f93\u51fa\u672c\u65e5\u66f4\u65b0\u7ed3\u679c\uff0c\u5305\u62ec\uff1a\u5404\u8282\u70b9\u65b0\u8bb0\u5f55\u6570\u3001\u5408\u5e76\u540e\u4eca\u65e5\u8986\u76d6\u80a1\u7968\u6570\u3001\u4e0e\u524d\u4e00\u4ea4\u6613\u65e5\u5bf9\u6bd4\uff08\u589e/\u51cf\uff09\u3002\n\n\u26a0\ufe0f \u6ce8\u610f\uff1a\u5982\u679c\u4eca\u5929\u662f\u5468\u672b\u6216\u8282\u5047\u65e5\uff08\u811a\u672c\u4f1a\u81ea\u52a8\u8bc6\u522b\u5e76\u4f7f\u7528\u6700\u8fd1\u4ea4\u6613\u65e5\uff09\uff0c\u62a5\u544a\u4e2d\u6ce8\u660e\"\u975e\u4ea4\u6613\u65e5\uff0c\u5df2\u62c9\u53d6\u6700\u8fd1\u4ea4\u6613\u65e5 XXXX-XX-XX \u6570\u636e\"\u3002",
+      "skills": [
+        "a-stock-data-fetching"
+      ],
+      "skill": "a-stock-data-fetching",
+      "model": null,
+      "provider": null,
+      "base_url": null,
+      "script": null,
+      "schedule": {
+        "kind": "cron",
+        "expr": "5 15 * * 1-5",
+        "display": "5 15 * * 1-5"
+      },
+      "schedule_display": "5 15 * * 1-5",
+      "repeat": {
+        "times": null,
+        "completed": 4
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-05-12T11:11:12.456281+08:00",
+      "next_run_at": "2026-05-18T15:05:00+08:00",
+      "last_run_at": "2026-05-15T15:41:48.248606+08:00",
+      "last_status": "ok",
+      "last_error": null,
+      "last_delivery_error": null,
+      "deliver": "feishu",
+      "origin": {
+        "platform": "feishu",
+        "chat_id": "oc_ea535c1684da353ec7b75b970ba1e6eb",
+        "chat_name": "oc_ea535c1684da353ec7b75b970ba1e6eb",
+        "thread_id": null
+      },
+      "enabled_toolsets": [
+        "terminal"
+      ],
+      "workdir": null
+    },
+    {
+      "id": "131bffabde85",
+      "name": "\u8bb8\u6587\u6770\u6bcf\u65e5\u590d\u76d8v9.7",
+      "prompt": "\u8fd0\u884c\u8bb8\u6587\u6770\u590d\u76d8v9.7\u811a\u672c\uff1acd /root/yuanfang-brain/output_v5 && python3 daily_replay_v9.7.py $(date +%Y-%m-%d) && echo \"---DONE---\"",
+      "skills": [
+        "daily-replay-xuwenjie-v9.7",
+        "akshare-rate-limit-bypass"
+      ],
+      "skill": "daily-replay-xuwenjie-v9.7",
+      "model": null,
+      "provider": null,
+      "base_url": null,
+      "script": null,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 16 * * 1-5",
+        "display": "0 16 * * 1-5"
+      },
+      "schedule_display": "0 16 * * 1-5",
+      "repeat": {
+        "times": null,
+        "completed": 3
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-05-13T12:34:45.906214+08:00",
+      "next_run_at": "2026-05-18T16:00:00+08:00",
+      "last_run_at": "2026-05-15T16:06:04.775779+08:00",
+      "last_status": "ok",
+      "last_error": null,
+      "last_delivery_error": null,
+      "deliver": "feishu",
+      "origin": {
+        "platform": "feishu",
+        "chat_id": "oc_ea535c1684da353ec7b75b970ba1e6eb",
+        "chat_name": "oc_ea535c1684da353ec7b75b970ba1e6eb",
+        "thread_id": null
+      },
+      "enabled_toolsets": null,
+      "workdir": null
+    },
+    {
+      "id": "0b93cc0941d4",
+      "name": "hermes-auto-fetch",
+      "prompt": "Run the Hermes auto-fetch system: python3 ~/.hermes/scripts/auto_fetch.py --once. This polls all connected services and updates the Obsidian Memory Tree. Report only if errors occur.",
+      "skills": [],
+      "skill": null,
+      "model": null,
+      "provider": null,
+      "base_url": null,
+      "script": null,
+      "schedule": {
+        "kind": "cron",
+        "expr": "*/20 * * * *",
+        "display": "*/20 * * * *"
+      },
+      "schedule_display": "*/20 * * * *",
+      "repeat": {
+        "times": null,
+        "completed": 123
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-05-16T19:17:18.470303+08:00",
+      "next_run_at": "2026-05-18T12:40:00+08:00",
+      "last_run_at": "2026-05-18T12:20:21.801798+08:00",
+      "last_status": "ok",
+      "last_error": null,
+      "last_delivery_error": null,
+      "deliver": "local",
+      "origin": {
+        "platform": "feishu",
+        "chat_id": "oc_ea535c1684da353ec7b75b970ba1e6eb",
+        "chat_name": "oc_ea535c1684da353ec7b75b970ba1e6eb",
+        "thread_id": null
+      },
+      "enabled_toolsets": [
+        "terminal",
+        "file"
+      ],
+      "workdir": null
+    }
+  ],
+  "updated_at": "2026-05-18T12:21:50.898532+08:00"
+}

@@ -1,0 +1,81 @@
+# Secrets
+.env
+*.key
+*.pem
+auth.json
+provider_keys.json
+config.yaml
+
+# Runtime
+sessions/
+logs/
+traces/
+cache/
+audio_cache/
+checkpoints/
+milestones/
+journal/
+experience_cards/
+memory/
+dag_edges.json
+knowledge_graph.json
+memory_blocks.db*
+session_memory.md
+memory-bank/
+cron/output/
+
+# Third-party
+hermes-agent/
+venv/
+node_modules/
+__pycache__/
+*.pyc
+
+# Large files
+*.db
+*.sqlite
+*.tar.gz
+
+# Process state
+*.lock
+*.pid
+*_state.json
+daemon_*
+desktop.*
+gateway.*
+hermes_daemon.*
+
+# Cache
+*_cache.*
+.cache/
+.repo-map.cache.json
+
+# macOS
+.DS_Store
+
+# Misc runtime
+.hermes_history
+.skills_prompt_snapshot.json
+.restart_last_processed.json
+.current_branch
+.update_*
+auth.lock
+channel_directory.json
+event_stream.jsonl
+feishu_seen_message_ids.json
+mode.json
+proactive_insights.json
+processes.json
+session_memory_state.json
+services.yaml
+sync_state.json
+trigger_state.json
+triggers.yaml
+migration/
+pastes/
+project-context/
+lsp/
+weixin/
+worktrees/
+bin/
+gym/

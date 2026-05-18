@@ -1,0 +1,38 @@
+name: 代码审查自动修复
+description: |
+  对代码仓库执行 lint 检查 + 自动修复 + 生成修复报告。
+  适用于 PR 前检查或定期代码质量管理。
+
+args:
+  path:
+    type: str
+    default: "."
+    description: 要检查的路径
+  auto_fix:
+    type: bool
+    default: true
+    description: 是否自动修复
+
+steps:
+  - name: 检查 Python 语法
+    run: python3 -m py_compile {{path}} 2>&1 || true
+    capture: syntax_check
+    ignore_errors: true
+
+  - name: Ruff lint 检查
+    run: cd {{path}} && ruff check --output-format=concise . 2>&1 | head -50
+    capture: lint_output
+    ignore_errors: true
+
+  - name: 自动修复
+    run: cd {{path}} && ruff check --fix . 2>&1 | tail -5
+    when: "{{auto_fix}} == true"
+    capture: fix_output
+    ignore_errors: true
+
+  - name: 统计结果
+    run: |
+      echo "=== 代码审查结果 ==="
+      echo "Lint 问题数: $(echo '{{lint_output}}' | wc -l)"
+      echo "修复: {{auto_fix}}"
+    ignore_errors: true

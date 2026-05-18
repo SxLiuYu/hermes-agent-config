@@ -1,0 +1,98 @@
+# Hermes Agent CLI Configuration
+# Migrated from OpenClaw config
+
+model:
+  default: qwen-local
+  # provider: "custom" uses MINIMAX_API_KEY env var
+  
+  # Alternative: use OpenRouter which routes to many providers
+  # provider: "openrouter"
+  # base_url: "https://openrouter.ai/api/v1"
+
+  # Local OMLX model (Qwen3.5 via local server)
+  # provider: "custom"
+  # base_url: "http://localhost:8080/v1"
+
+# Model aliases for quick switching
+model_aliases:
+  qwen-local:
+    model: "/Users/sxliuyu/.cache/huggingface/hub/models--mlx-community--Qwen3.5-9B-MLX-4bit"
+    provider: "custom"
+    base_url: "http://localhost:8080/v1"
+  ouro-local:
+    model: "Ouro-2.6B-4bit"
+    provider: "custom"
+    base_url: "http://localhost:8080/v1"
+
+# Terminal tool - local execution
+terminal:
+  backend: "local"
+  cwd: "."
+  timeout: 180
+  lifetime_seconds: 300
+
+# Toolsets - enable all major tools
+platform_toolsets:
+  cli: ["hermes-cli"]
+  telegram: [hermes-telegram]
+  discord: [hermes-discord]
+  whatsapp: [hermes-whatsapp]
+  slack: [hermes-slack]
+  weixin: [hermes-weixin]
+
+# Memory - enable persistent memory
+memory:
+  memory_enabled: true
+  user_profile_enabled: true
+  memory_char_limit: 2200
+  user_char_limit: 1375
+
+# Session reset for messaging
+session_reset:
+  mode: "idle"
+  idle_minutes: 1440
+
+# Context compression
+compression:
+  enabled: true
+  threshold: 0.50
+
+# Agent behavior
+agent:
+  max_turns: 60
+  verbose: false
+  reasoning_effort: "medium"
+
+# Display
+display:
+  streaming: true
+  tool_progress: all
+
+# Tools - web search
+# Web search uses EXA or Tavily - Tavily is configured via .env
+
+# =============================================================================
+# MCP (Model Context Protocol) Servers
+# =============================================================================
+mcp_servers:
+  mempalace:
+    command: "mempalace-rs"
+    args: ["--palace", "/Users/sxliuyu/YuanFang/.mempalace", "mcp-server"]
+    cwd: "/Users/sxliuyu/YuanFang"
+    env:
+      HF_HUB_OFFLINE: "1"
+  gbrain:
+    command: "/Users/sxliuyu/node_modules/.bin/gbrain"
+    args: ["serve"]
+    env: {}
+
+# =============================================================================
+# Subagent Delegation — 子Agent默认使用MiniMax M2.7（火山方舟Ark）
+# =============================================================================
+delegation:
+  model: "minimax-m2.7"
+  provider: "custom"
+  base_url: "https://ark.cn-beijing.volces.com/api/coding/v3"
+  api_key: "ark-85880bde-22b6-4220-8c6b-f846381dbdd4-1608d"
+  max_iterations: 50
+  # auto_delegate: true  # 由主Agent判断何时派生，不硬编码
